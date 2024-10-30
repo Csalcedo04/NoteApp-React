@@ -1,50 +1,46 @@
 import React, { useState } from "react";
 
-function CreateArea(prop) {
-  const [note, newNote] = useState({
+function CreateArea(props) {
+  const [note, setNote] = useState({
     title: "",
     content: "",
   });
 
-  function submitNote(event) {
-    prop.onAdd(note);
-    newNote({
-      title: "",
-      content: "",
-    });
+  const submitNote = (event) => {
+    event.preventDefault();
+    const noteWithId = {
+      ...note,
+      id: Math.floor(Math.random() * 1000000),
+    };
+    props.onAdd(noteWithId);
+    setNote({ title: "", content: "" });
+  };
 
-    event.preventDefault();
-  }
-  function HandleChange(e) {
-    const { name, value } = e.target;
-    newNote((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
-  }
-  function no(event) {
-    event.preventDefault();
-  }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setNote((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   return (
     <div>
-      <form onSubmit={no}>
+      <form onSubmit={submitNote}>
         <input
           name="title"
           placeholder="Title"
-          onChange={HandleChange}
+          onChange={handleChange}
           value={note.title}
         />
         <textarea
           name="content"
-          onChange={HandleChange}
+          onChange={handleChange}
           value={note.content}
           placeholder="Take a note..."
           rows="3"
         />
-        <button onClick={submitNote}>Add</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );
