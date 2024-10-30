@@ -12,6 +12,10 @@ NoteApp-React allows users to create, view, and delete notes easily. The applica
 - **View Notes**: Display a list of all created notes.
 - **Delete Notes**: Easily remove existing notes with a single click.
 
+## Screenshot
+
+![NoteApp-React Screenshot](https://github.com/user-attachments/assets/3f6d72b0-5646-409f-bbbe-3371f3b9c550)
+
 ## Technologies Used
 
 - **React**: A JavaScript library for building user interfaces.
@@ -43,10 +47,6 @@ NoteApp-React allows users to create, view, and delete notes easily. The applica
 ## Usage
 
 After starting the application, open your browser and navigate to `http://localhost:5173/` to access NoteApp-React. You can create, view, and delete notes from the main interface.
-
-## Screenshot
-
-![NoteApp-React Screenshot](https://github.com/user-attachments/assets/3f6d72b0-5646-409f-bbbe-3371f3b9c550)
 
 ## Contributing
 
