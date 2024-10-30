@@ -1,6 +1,10 @@
 # NoteApp-React
 
-**NoteApp-React** is a note-taking application developed using React. This project is part of a programming challenge from [The App Brewery](https://www.appbrewery.com).
+**NoteApp-React** is a feature-rich note-taking application developed using React. Originally created as part of a programming challenge from The App Brewery, this project has been significantly enhanced with additional functionalities. These include:
+
+- **API Integration**: Seamlessly interact with a backend to get, post, and delete data from the database.
+- **Dockerization**: Containerize the application for consistent and efficient deployment.
+- **CI/CD with Jenkins**: Automate the build, test, and deployment processes using Jenkins, with containers published to Docker Hub.
 
 ## Overview
 
