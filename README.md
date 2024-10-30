@@ -42,7 +42,7 @@ NoteApp-React allows users to create, view, and delete notes easily. The applica
 
 ## Usage
 
-After starting the application, open your browser and navigate to `http://localhost:3000` to access NoteApp-React. You can create, view, and delete notes from the main interface.
+After starting the application, open your browser and navigate to `http://localhost:5173/` to access NoteApp-React. You can create, view, and delete notes from the main interface.
 
 ## Screenshot
 
