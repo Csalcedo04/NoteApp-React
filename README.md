@@ -23,6 +23,7 @@ NoteApp-React allows users to create, view, and delete notes easily. The applica
 ## Technologies Used
 
 - **React**: A JavaScript library for building user interfaces.
+- **Jenkins** For CI/CD
 - **Axios**: For making HTTP requests to a backend API.
 - **CSS**: For styling the application.
 
