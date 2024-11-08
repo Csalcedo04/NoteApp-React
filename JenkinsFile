@@ -1,0 +1,31 @@
+node {
+    // Configura SCM (control de versiones) para Git
+    stage('Checkout') {
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']],
+            userRemoteConfigs: [[url: 'repositorio.GIT']],
+            extensions: [[$class: 'UserIdentity', name: 'DSL User', email: 'jenkins-dsl@newtech.academy']]
+        ])
+    }
+
+    // Define un trigger para ejecutar este pipeline cada 5 minutos
+    properties([
+        pipelineTriggers([[$class: 'SCMTrigger', scmpoll_spec: 'H/5 * * * *']])
+    ])
+
+    // Configura Node.js usando una instalación predefinida
+    stage('Setup Node.js') {
+        def nodeHome = tool name: 'nodejs', type: 'NodeJS'
+        env.PATH = "${nodeHome}/bin:${env.PATH}"
+    }
+
+    // Construye y publica la imagen en DockerHub
+    stage('Docker Build and Publish') {
+        script {
+            // Autenticar en Docker Hub y construir/publicar la imagen
+            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                def image = docker.build("csalcedo04/note_app-docker:latest")
+                image.push("latest")  // Publica la imagen en DockerHub
+            }
+        }
+    }
+}
