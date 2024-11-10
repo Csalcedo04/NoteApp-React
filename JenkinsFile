@@ -2,7 +2,7 @@ node {
     // Configura SCM (control de versiones) para Git
     stage('Checkout') {
         checkout([$class: 'GitSCM', branches: [[name: '*/main']],
-            userRemoteConfigs: [[url: 'repositorio.GIT']],
+            userRemoteConfigs: [[url: 'https://github.com/Csalcedo04/NoteApp-React.git']],
             extensions: [[$class: 'UserIdentity', name: 'DSL User', email: 'jenkins-dsl@newtech.academy']]
         ])
     }
