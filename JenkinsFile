@@ -14,10 +14,7 @@ node {
 
     // Configura Node.js usando una instalación predefinida
     stage('Setup Node.js') {
-        def nodeHome = tool name: 'nodejs', type: 'NodeJS'
-        env.PATH = "${nodeHome}/bin:${env.PATH}"
-        sh 'echo $PATH' // Verifica el PATH en el log
-        sh 'node -v'    // Verifica que Node.js está disponible y funcionando
+        nodejs('nodejs')
     }
 
 
