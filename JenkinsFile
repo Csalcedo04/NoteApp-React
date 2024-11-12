@@ -16,7 +16,10 @@ node {
     stage('Setup Node.js') {
         def nodeHome = tool name: 'nodejs', type: 'NodeJS'
         env.PATH = "${nodeHome}/bin:${env.PATH}"
+        sh 'echo $PATH' // Verifica el PATH en el log
+        sh 'node -v'    // Verifica que Node.js está disponible y funcionando
     }
+
 
     // Construye y publica la imagen en DockerHub
     stage('Docker Build and Publish') {
