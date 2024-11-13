@@ -12,10 +12,12 @@ node {
         pipelineTriggers([[$class: 'SCMTrigger', scmpoll_spec: 'H/5 * * * *']])
     ])
 
-    // Configura Node.js usando una instalación predefinida
     stage('Setup Node.js') {
         echo "Starting Node.js Setup"
-        nodejs('nodejs') // Asegúrate de que este nombre coincida con el nombre de la instalación
+        nodejs('nodejs') {
+            // Commands to execute in the Node.js environment
+            sh 'npm install'
+        }
         echo "Node.js Setup Complete"
     }
 
