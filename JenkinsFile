@@ -15,11 +15,7 @@ node {
     // Configura Node.js usando una instalación predefinida
     stage('Setup Node.js') {
         echo "Starting Node.js Setup"
-        def nodeHome = tool name: 'nodejs', type: 'NodeJS'
-        withEnv(["PATH+NODEJS=${nodeHome}/bin"]) {
-            sh 'node -v'  // Verifica que Node.js esté configurado
-            sh 'npm -v'   // Verifica que npm esté configurado
-        }
+        nodejs('nodejs') // Asegúrate de que este nombre coincida con el nombre de la instalación
         echo "Node.js Setup Complete"
     }
 
